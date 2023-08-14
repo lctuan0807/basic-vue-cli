@@ -15,10 +15,21 @@ import Popup from "./components/Popup.vue";
 import Input from "./components/Input.vue";
 import Card from "./components/Card.vue";
 import NameList from "./components/NameList.vue";
+import ChildStyles from "./components/ChildStyles.vue";
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
+import Portal from "./components/Portal.vue";
 
 const name = ref("");
 const channel = ref("https://github.com/lctuan0807");
 const isShowPopup = ref(false);
+const activeTab = ref("TabA");
+const tabs = {
+  TabA,
+  TabB,
+  TabC,
+};
 
 function onClosePopup(name) {
   isShowPopup.value = false;
@@ -78,7 +89,7 @@ function onClosePopup(name) {
       <h3>Card footer</h3>
     </template>
   </Card> -->
-  <NameList>
+  <!-- <NameList>
     <template #default="slotProps">
       {{ slotProps.firstName }} {{ slotProps.lastName }}
     </template>
@@ -94,7 +105,31 @@ function onClosePopup(name) {
     <template #default="slotProps">
       {{ slotProps.firstName }}
     </template>
-  </NameList>
+  </NameList> -->
+
+  <!-- Component Styles -->
+  <!-- <h4>App component text</h4>
+  <ChildStyles>
+    <h4>Child Styles</h4>
+  </ChildStyles> -->
+
+  <!-- Dynamic Components -->
+  <!-- <button @click="activeTab = 'TabA'">Tab A</button>
+  <button @click="activeTab = 'TabB'">Tab B</button>
+  <button @click="activeTab = 'TabC'">Tab C</button>
+  <KeepAlive>
+    <component :is="tabs[activeTab]"></component>
+  </KeepAlive> -->
+  <!-- <TabA v-if="activeTab === 'TabA'" />
+  <TabB v-if="activeTab === 'TabB'" />
+  <TabC v-if="activeTab === 'TabC'" /> -->
+  <Teleport to="#portal-root">
+    <Portal />
+  </Teleport>
 </template>
 
-<style></style>
+<style scoped>
+h4 {
+  color: orange;
+}
+</style>
