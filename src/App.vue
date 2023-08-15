@@ -20,6 +20,8 @@ import TabA from "./components/TabA.vue";
 import TabB from "./components/TabB.vue";
 import TabC from "./components/TabC.vue";
 import Portal from "./components/Portal.vue";
+import PostList from "./components/https/PostList.vue";
+import CreatePost from "./components/https/CreatePost.vue";
 
 const name = ref("");
 const channel = ref("https://github.com/lctuan0807");
@@ -123,9 +125,13 @@ function onClosePopup(name) {
   <!-- <TabA v-if="activeTab === 'TabA'" />
   <TabB v-if="activeTab === 'TabB'" />
   <TabC v-if="activeTab === 'TabC'" /> -->
-  <Teleport to="#portal-root">
+  <!-- <Teleport to="#portal-root">
     <Portal />
-  </Teleport>
+  </Teleport> -->
+
+  <!-- HTTP requests -->
+  <PostList />
+  <!-- <CreatePost /> -->
 </template>
 
 <style scoped>
