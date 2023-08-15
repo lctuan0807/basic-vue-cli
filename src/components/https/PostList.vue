@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button @click="getPosts">Load Post</button>
+    <!-- <button @click="getPosts">Load Post</button> -->
     <button @click="filterPost(2)">Filter Post</button>
     <h3 v-if="errorMsg">{{ errorMsg }}</h3>
     <div v-for="post in posts" :key="post.id">
@@ -13,11 +13,14 @@
 
 <script setup>
 import axios from "axios";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import ComputedVue from "../basic/Computed.vue";
 const posts = ref([]);
 const errorMsg = ref("");
 
+onMounted(() => {
+  getPosts();
+});
 function getPosts() {
   axios
     .get("https://jsonplaceholder.typicode.com/posts")
@@ -30,7 +33,6 @@ function getPosts() {
       errorMsg = "Error retrieving data";
     });
 }
-
 function filterPost(userId) {
   axios
     .get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
