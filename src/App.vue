@@ -23,6 +23,8 @@ import Portal from "./components/Portal.vue";
 import PostList from "./components/https/PostList.vue";
 import CreatePost from "./components/https/CreatePost.vue";
 import TemplateRef from "./components/TemplateRef.vue";
+import ClickCounter from "./components/ClickCounter.vue";
+import HoverCounter from "./components/HoverCounter.vue";
 
 const name = ref("");
 const channel = ref("https://github.com/lctuan0807");
@@ -133,7 +135,12 @@ function onClosePopup(name) {
   <!-- HTTP requests -->
   <!-- <PostList /> -->
   <!-- <CreatePost /> -->
-  <TemplateRef />
+
+  <!-- <TemplateRef /> -->
+
+  <!-- Mixins -->
+  <ClickCounter />
+  <HoverCounter />
 </template>
 
 <style scoped>
