@@ -25,7 +25,7 @@ function getPosts() {
   axios
     .get("https://jsonplaceholder.typicode.com/posts")
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       posts.value = res.data;
     })
     .catch((err) => {

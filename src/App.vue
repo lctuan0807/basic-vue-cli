@@ -22,6 +22,7 @@ import TabC from "./components/TabC.vue";
 import Portal from "./components/Portal.vue";
 import PostList from "./components/https/PostList.vue";
 import CreatePost from "./components/https/CreatePost.vue";
+import TemplateRef from "./components/TemplateRef.vue";
 
 const name = ref("");
 const channel = ref("https://github.com/lctuan0807");
@@ -130,8 +131,9 @@ function onClosePopup(name) {
   </Teleport> -->
 
   <!-- HTTP requests -->
-  <PostList />
+  <!-- <PostList /> -->
   <!-- <CreatePost /> -->
+  <TemplateRef />
 </template>
 
 <style scoped>
